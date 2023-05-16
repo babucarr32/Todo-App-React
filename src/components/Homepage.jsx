@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Side from "./Side";
+import SideThin from "./SideThin";
 
 function Homepage() {
   const [fontColor, setFontColor] = useState("black");
@@ -9,6 +10,7 @@ function Homepage() {
     <div
       className={`bg-${bgColor} shadow-lg shadow-black w-100 h-90vh rounded-3xl relative flex`}
     >
+      <SideThin />
       <Side />
       <div>
         <h1 className={`text-${fontColor} `}>Hello World</h1>
