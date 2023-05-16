@@ -9,7 +9,6 @@ function Homepage() {
       className={`bg-${bgColor} shadow-lg shadow-black w-100 h-90vh rounded-3xl`}
     >
       <h1 className={`text-${fontColor} `}>Hello World</h1>
-      <h1>Hsssse</h1>
     </div>
   );
 }
