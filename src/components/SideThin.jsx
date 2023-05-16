@@ -9,6 +9,7 @@ function SideThin() {
       <ImageComp />
       <ImageComp />
       <ImageComp />
+      <Icon src={"/assets/icons/eight.svg"} width={8} height={8} />
       <Icon
         src={"/assets/icons/plus.svg"}
         width={3}
