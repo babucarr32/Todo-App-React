@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Side from "./Side";
 
 function Homepage() {
   const [fontColor, setFontColor] = useState("black");
@@ -6,9 +7,12 @@ function Homepage() {
 
   return (
     <div
-      className={`bg-${bgColor} shadow-lg shadow-black w-100 h-90vh rounded-3xl`}
+      className={`bg-${bgColor} shadow-lg shadow-black w-100 h-90vh rounded-3xl relative flex`}
     >
-      <h1 className={`text-${fontColor} `}>Hello World</h1>
+      <Side />
+      <div>
+        <h1 className={`text-${fontColor} `}>Hello World</h1>
+      </div>
     </div>
   );
 }
