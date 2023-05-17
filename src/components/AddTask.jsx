@@ -4,7 +4,7 @@ import TextArea from "./TextArea";
 import Title from "./Title";
 import Button from "./Button";
 
-function AddTask() {
+function AddTask({ defaultTitle, defaultTime, defaultComment }) {
   const [getTodoData, setGetTodoData] = useState([]);
   const [submitForm, setSubmitForm] = useState(true);
 
@@ -48,7 +48,7 @@ function AddTask() {
       <form action="" onSubmit={(e) => handleCreateTodo(e)}>
         <Title />
         <Input placeholder={"Time: 09:30 AM"} name={"time"} />
-        <Input placeholder={"Title"} name={"title"} />
+        <Input placeholder={"Title"} name={"title"} value={defaultTitle} />
         <TextArea name={"comment"} />
         <Button btnContent={"Create"} bg={true} />
       </form>
