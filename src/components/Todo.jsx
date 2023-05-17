@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import Icon from "./Icon";
 
-function Todo({ changeToDarkMode, setChangeToDarkMode }) {
+function Todo({
+  changeToDarkMode,
+  setChangeToDarkMode,
+  setSecChangeToDarkMode,
+}) {
   const darkModeRef = useRef();
   const [darkMode, setDarkMode] = useState(false);
   const [bgColor, setBgColor] = useState("bg-white");
@@ -14,11 +18,13 @@ function Todo({ changeToDarkMode, setChangeToDarkMode }) {
       setBgColor("bg-black");
       setFlex("flex justify-end");
       setChangeToDarkMode("black");
+      setSecChangeToDarkMode("bg-zinc-900");
       darkModeRef.current.src = "/assets/icons/moon.svg";
     } else {
       setFlex("flex justify-start");
       setBgColor("bg-white");
       setChangeToDarkMode("white");
+      setSecChangeToDarkMode("white");
       darkModeRef.current.src = "/assets/icons/sun.svg";
     }
   };

@@ -8,10 +8,15 @@ import Todo from "./Todo";
 function Homepage() {
   const [fontColor, setFontColor] = useState("black");
   const [bgColor, setBgColor] = useState("white");
+  const [secondBgColor, setSecondBgColor] = useState("white");
 
   return (
-    <>
-      <Todo changeToDarkMode={bgColor} setChangeToDarkMode={setBgColor} />
+    <div className={`${secondBgColor}  h-100 p-28 pt-10`}>
+      <Todo
+        changeToDarkMode={bgColor}
+        setChangeToDarkMode={setBgColor}
+        setSecChangeToDarkMode={setSecondBgColor}
+      />
       <div
         className={`bg-${bgColor} shadow-lg shadow-black w-100 rounded-3xl relative flex overflow-hidden`}
       >
@@ -20,7 +25,7 @@ function Homepage() {
         <TimeBar />
         <TaskContainer />
       </div>
-    </>
+    </div>
   );
 }
 
