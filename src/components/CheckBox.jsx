@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
 
-function CheckBox({ text }) {
+function CheckBox({ text, todoID }) {
+  console.log(todoID);
   const checkBoxRef = useRef();
   const [checked, setChecked] = useState(false);
 
@@ -15,6 +16,10 @@ function CheckBox({ text }) {
       checkBoxRef.current.src = "/assets/icons/unchecked.svg";
     }
   };
+
+  const handleEditTodo = (todoID) => {
+    console.log(todoID);
+  };
   return (
     <div className={`flex text-white items-center`}>
       <Icon
@@ -24,9 +29,12 @@ function CheckBox({ text }) {
         handleClick={handleCheckBoxClick}
         refs={checkBoxRef}
       />
-      <div className="flex justify-between w-100">
+      <div className="flex justify-between w-100 items-center">
         <p className={`text-${color}`}>{text}</p>
-        <Button btnContent={"edit"} />
+        <Button
+          btnContent={"edit"}
+          buttonClick={() => handleEditTodo(todoID)}
+        />
       </div>
     </div>
   );

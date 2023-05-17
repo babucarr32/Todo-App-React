@@ -25,16 +25,17 @@ function AddTask() {
     const getLocalStorage = localStorage.getItem("TODO");
     let LSData = [
       {
+        id: 0,
         time,
         title,
         comment,
       },
     ];
     if (getLocalStorage !== null) {
-      LSData = [...JSON.parse(getLocalStorage), ...LSData];
+      const updateID = { ...LSData[0], id: LSData[0].id + 1 };
+      LSData = [...JSON.parse(getLocalStorage), updateID];
     }
     localStorage.setItem("TODO", JSON.stringify(LSData));
-    console.log(time, title, comment);
   };
 
   return (

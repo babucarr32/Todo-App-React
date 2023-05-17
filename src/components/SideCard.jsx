@@ -27,7 +27,7 @@ function SideCard() {
         </div>
         {getTodoData.map((todo) => (
           <>
-            <CheckBox text={todo.title} />
+            <CheckBox text={todo.title} todoID={todo.id} />
           </>
         ))}
         <div className="w-100 flex justify-end">
