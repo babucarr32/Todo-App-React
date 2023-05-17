@@ -11,7 +11,7 @@ function Homepage() {
 
   return (
     <>
-      <Todo />
+      <Todo changeToDarkMode={bgColor} setChangeToDarkMode={setBgColor} />
       <div
         className={`bg-${bgColor} shadow-lg shadow-black w-100 rounded-3xl relative flex overflow-hidden`}
       >
