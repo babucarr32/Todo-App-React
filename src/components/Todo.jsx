@@ -1,14 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
+import { ThemeContext } from "./Homepage";
 import Icon from "./Icon";
 
-function Todo({
-  changeToDarkMode,
-  setChangeToDarkMode,
-  setSecChangeToDarkMode,
-}) {
+function Todo() {
   const darkModeRef = useRef();
+  const {
+    bgColor,
+    setSecondBgColor,
+    setBgColor,
+    fontColor,
+    setFontColor,
+    setDateColor,
+  } = useContext(ThemeContext);
   const [darkMode, setDarkMode] = useState(false);
-  const [bgColor, setBgColor] = useState("bg-white");
   const [flex, setFlex] = useState("");
 
   const handleDarkMode = () => {
@@ -17,14 +21,16 @@ function Todo({
     if (!darkMode) {
       setBgColor("bg-black");
       setFlex("flex justify-end");
-      setChangeToDarkMode("black");
-      setSecChangeToDarkMode("bg-zinc-900");
+      setSecondBgColor("bg-zinc-900");
+      setDateColor("zinc-900");
+      setFontColor("text-white");
       darkModeRef.current.src = "/assets/icons/moon.svg";
     } else {
       setFlex("flex justify-start");
       setBgColor("bg-white");
-      setChangeToDarkMode("white");
-      setSecChangeToDarkMode("white");
+      setSecondBgColor("white");
+      setFontColor("text-black");
+      setDateColor("zinc-300");
       darkModeRef.current.src = "/assets/icons/sun.svg";
     }
   };
@@ -32,7 +38,7 @@ function Todo({
   return (
     <div className="flex justify-between items-center">
       <div className="text-center w-100">
-        <p className="text-5xl font-extrabold mb-5">
+        <p className={`text-5xl font-extrabold mb-5 ${fontColor}`}>
           What Do You Want TODO Today?
         </p>
       </div>

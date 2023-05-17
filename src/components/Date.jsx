@@ -1,44 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./Homepage";
+
+const dateData = [
+  { date: "07", day: "mon" },
+  { date: "08", day: "tue" },
+  { date: "09", day: "wed" },
+  { date: "10", day: "thu" },
+  { date: "11", day: "fri" },
+  { date: "12", day: "sat" },
+  { date: "13", day: "sun" },
+];
 
 function Date() {
-  const color = "gray";
+  const { dateColor } = useContext(ThemeContext);
   return (
     <ul className="flex justify-around text-5xl font-bold gap-2 pt-5 pb-5">
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={`text-zinc-300`}>07</p>
-        <p className={`text-zinc-300 text-xl`}>mon</p>
-        <div className="h-5 w-1 bg-zinc-300"></div>
-      </li>
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={`text-zinc-300`}>08</p>
-        <p className={`text-zinc-300 text-xl`}>tue</p>
-        <div className="h-5 w-1 bg-zinc-300"></div>
-      </li>
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={``}>09</p>
-        <p className={` text-xl`}>wed</p>
-        <div className="h-5 w-1 bg-black"></div>
-      </li>
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={`text-zinc-300`}>10</p>
-        <p className={`text-zinc-300 text-xl`}>thu</p>
-        <div className="h-5 w-1 bg-zinc-300"></div>
-      </li>
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={`text-zinc-300`}>11</p>
-        <p className={`text-zinc-300 text-xl`}>fri</p>
-        <div className="h-5 w-1 bg-zinc-300"></div>
-      </li>
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={`text-zinc-300`}>12</p>
-        <p className={`text-zinc-300 text-xl`}>sat</p>
-        <div className="h-5 w-1 bg-zinc-300"></div>
-      </li>
-      <li className="flex flex-col justify-center items-center w-100">
-        <p className={`text-zinc-300`}>13</p>
-        <p className={`text-zinc-300 text-xl`}>sun</p>
-        <div className="h-5 w-1 bg-zinc-300"></div>
-      </li>
+      {dateData.map((date) => (
+        <li className="flex flex-col justify-center items-center w-100">
+          <p className={`text-${dateColor}`}>{date.date}</p>
+          <p className={`text-${dateColor} text-xl`}>{date.day}</p>
+          <div className={`h-5 w-1 bg-${dateColor}`}></div>
+        </li>
+      ))}
     </ul>
   );
 }
