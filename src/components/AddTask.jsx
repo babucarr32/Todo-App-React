@@ -26,19 +26,19 @@ function AddTask() {
     const comment = e.target.comment.value;
 
     const getLocalStorage = localStorage.getItem("TODO");
+    let LSData = [
+      {
+        time,
+        title,
+        comment,
+      },
+    ];
+    let addToLSData;
     if (getLocalStorage !== null) {
-      console.log([...getLocalStorage]);
+      LSData = [...JSON.parse(getLocalStorage), ...LSData];
+      console.log("___", LSData);
     }
-    localStorage.setItem(
-      "TODO",
-      JSON.stringify([
-        {
-          time,
-          title,
-          comment,
-        },
-      ])
-    );
+    localStorage.setItem("TODO", JSON.stringify(LSData));
     console.log(time, title, comment);
   };
 
