@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Side from "./Side";
 import SideThin from "./SideThin";
+import TaskContainer from "./TaskContainer";
 
 function Homepage() {
   const [fontColor, setFontColor] = useState("black");
@@ -12,9 +13,7 @@ function Homepage() {
     >
       <SideThin />
       <Side />
-      <div>
-        <h1 className={`text-${fontColor} `}>Hello World</h1>
-      </div>
+      <TaskContainer />
     </div>
   );
 }

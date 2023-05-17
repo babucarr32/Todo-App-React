@@ -8,6 +8,8 @@ export default {
       },
       height: {
         "90vh": "80vh",
+        "70vh": "70vh",
+        "60vh": "60vh",
         100: "100%",
       },
       colors: {
