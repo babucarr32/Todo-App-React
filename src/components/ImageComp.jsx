@@ -8,7 +8,6 @@ function ImageComp() {
         className="w-10 h-10 rounded-full"
         src="/assets/images/image.png"
         alt=""
-        srcset=""
       />
     </div>
   );

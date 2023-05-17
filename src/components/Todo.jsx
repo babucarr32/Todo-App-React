@@ -46,7 +46,6 @@ function Todo() {
         className={`w-20 h-10 border-solid border-2 border-black rounded-full ${bgColor}  ${flex}`}
         onClick={handleDarkMode}
       >
-        {/* <img className="" src="/assets/icons/sun.svg" alt="" srcset="" /> */}
         <Icon
           width={"w-7"}
           height={"h-7"}

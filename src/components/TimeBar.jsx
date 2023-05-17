@@ -1,56 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./Homepage";
+
+const timeData = [
+  { time: "09", current: "am" },
+  { time: "10", current: "am" },
+  { time: "11", current: "am" },
+  { time: "12", current: "am" },
+  { time: "01", current: "pm" },
+  { time: "02", current: "pm" },
+  { time: "03", current: "pm" },
+  { time: "04", current: "pm" },
+  { time: "05", current: "pm" },
+  { time: "06", current: "pm" },
+  { time: "07", current: "pm" },
+  { time: "08", current: "pm" },
+  { time: "09", current: "pm" },
+  { time: "10", current: "pm" },
+  { time: "11", current: "pm" },
+  { time: "12", current: "am" },
+];
 
 function TimeBar() {
+  const { dateColor } = useContext(ThemeContext);
   return (
     <ul className="flex flex-col-reverse justify-start gap-5  p-3 w-24 items-baseline">
-      <li>
-        <p className="text-zinc-300">9 am</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">10 am</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">11 am</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">12 am</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">1 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">2 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">3 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">4 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">5 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">6 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">7 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">8 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">9 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">10 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">11 pm</p>
-      </li>
-      <li>
-        <p className="text-zinc-300">12 am</p>
-      </li>
+      {timeData.map((time, index) => (
+        <li key={index}>
+          <p className={`text-${dateColor}`}>
+            {time.time} {time.current}
+          </p>
+        </li>
+      ))}
     </ul>
   );
 }

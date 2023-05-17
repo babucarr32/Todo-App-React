@@ -15,8 +15,11 @@ function Date() {
   const { dateColor } = useContext(ThemeContext);
   return (
     <ul className="flex justify-around text-5xl font-bold gap-2 pt-5 pb-5">
-      {dateData.map((date) => (
-        <li className="flex flex-col justify-center items-center w-100">
+      {dateData.map((date, index) => (
+        <li
+          key={index}
+          className="flex flex-col justify-center items-center w-100"
+        >
           <p className={`text-${dateColor}`}>{date.date}</p>
           <p className={`text-${dateColor} text-xl`}>{date.day}</p>
           <div className={`h-5 w-1 bg-${dateColor}`}></div>
