@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
+import { ThemeContext } from "./Homepage";
 
 function CheckBox({ text, todoID }) {
-  console.log(todoID);
+  const { addTask, setAddTask } = useContext(ThemeContext);
+
   const checkBoxRef = useRef();
   const [checked, setChecked] = useState(false);
 
@@ -18,7 +20,7 @@ function CheckBox({ text, todoID }) {
   };
 
   const handleEditTodo = (todoID) => {
-    console.log(todoID);
+    setAddTask(!addTask);
   };
   return (
     <div className={`flex text-white items-center`}>
