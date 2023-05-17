@@ -1,13 +1,18 @@
 import React from "react";
 
-function TextArea({ comment }) {
+function TextArea({ name }) {
   return (
-    <textarea
-      className="w-100 h-52"
-      name={comment}
-      id=""
-      placeholder="Comments..."
-    ></textarea>
+    <>
+      <textarea
+        className="w-100 h-52"
+        name={name}
+        id=""
+        placeholder="Comments..."
+      ></textarea>
+
+      <br />
+      <br />
+    </>
   );
 }
 
