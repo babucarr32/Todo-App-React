@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import Task from "./Task";
 import DateComponent from "./DateComponent";
-import AddTask from "./AddTask";
 import { ThemeContext } from "./Homepage";
+
+const bgColorThemes = ["bg-red-400", "bg-cyan-400", "bg-pink-400"];
 
 function TaskContainer() {
   const [getTodoData, setGetTodoData] = useState([]);
@@ -19,8 +20,14 @@ function TaskContainer() {
     <div className="flex flex-col  gap-2 w-100 justify-between">
       <DateComponent />
       <div className="flex gap-2 items-end pl-2 pr-2 h-100">
-        {getTodoData.map((data) => (
-          <Task height="h-70vh" width="w-100" bgColor={"bg-yellow-200"} />
+        {getTodoData.map((todo, index) => (
+          <Task
+            title={todo.title}
+            time={todo.time}
+            height="h-70vh"
+            width="w-100"
+            bgColor={bgColorThemes[index]}
+          />
         ))}
       </div>
     </div>
