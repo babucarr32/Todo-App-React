@@ -1,29 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import Title from "./Title";
 import Button from "./Button";
 
 function AddTask() {
-  let handleCreateTodo;
+  const [getTodoData, setGetTodoData] = useState([]);
+  const [todoData, setTodoData] = useState([]);
+  const [submitForm, setSubmitForm] = useState(true);
 
   useEffect(() => {
-    handleCreateTodo = (e) => {
-      e.preventDefault();
-      const time = e.target.time.value;
-      const title = e.target.title.value;
-      const comment = e.target.comment.value;
-      localStorage.setItem(
-        "TODO",
-        JSON.stringify({
-          name: name,
-          time: time,
-          comment: comment,
-        })
-      );
-      console.log(time, title, comment);
-    };
-  }, []);
+    const getLocalStorage = localStorage.getItem("TODO");
+    setGetTodoData([getLocalStorage]);
+  }, [submitForm]);
+
+  getTodoData.map((data) => {
+    console.log(data);
+  });
+
+  const handleCreateTodo = (e) => {
+    setSubmitForm(!submitForm);
+    e.preventDefault();
+    const time = e.target.time.value;
+    const title = e.target.title.value;
+    const comment = e.target.comment.value;
+
+    const getLocalStorage = localStorage.getItem("TODO");
+    if (getLocalStorage !== null) {
+      console.log([...getLocalStorage]);
+    }
+    localStorage.setItem(
+      "TODO",
+      JSON.stringify([
+        {
+          time,
+          title,
+          comment,
+        },
+      ])
+    );
+    console.log(time, title, comment);
+  };
 
   return (
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">
