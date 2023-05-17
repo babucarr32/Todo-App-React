@@ -11,7 +11,6 @@ function Task({ width, height, bgColor, title, time }) {
   );
 
   height = parseInt(timeFinder.id) * 6.25;
-  console.log(height);
 
   return (
     <div

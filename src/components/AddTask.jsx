@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import Title from "./Title";
 import Button from "./Button";
+import { ThemeContext } from "./Homepage";
 
-function AddTask({ defaultTitle, defaultTime, defaultComment }) {
+function AddTask() {
+  const { updateTitle, updateTime, setUpdateTitle, defaultTitle } =
+    useContext(ThemeContext);
+
   const [getTodoData, setGetTodoData] = useState([]);
   const [submitForm, setSubmitForm] = useState(true);
 
@@ -47,9 +51,13 @@ function AddTask({ defaultTitle, defaultTime, defaultComment }) {
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">
       <form action="" onSubmit={(e) => handleCreateTodo(e)}>
         <Title />
-        <Input placeholder={"Time: 09:30 AM"} name={"time"} />
-        <Input placeholder={"Title"} name={"title"} value={defaultTitle} />
-        <TextArea name={"comment"} />
+        <Input
+          initPlaceholder={"Time: 09:30 AM"}
+          initName={"time"}
+          value={updateTitle}
+        />
+        <Input initPlaceholder={"Title"} name={"title"} value={updateTime} />
+        <TextArea initName={"comment"} />
         <Button btnContent={"Create"} bg={true} />
       </form>
     </div>

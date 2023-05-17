@@ -14,8 +14,8 @@ function Homepage() {
   const [dateColor, setDateColor] = useState("text-zinc-400");
   const [addTask, setAddTask] = useState(false);
 
-  const [updateTitle, setUpdateTitle] = useState();
-  const [updateTime, setUpdateTime] = useState();
+  const [updateTitle, setUpdateTitle] = useState(null);
+  const [updateTime, setUpdateTime] = useState(null);
   const [updateComment, setUpdateComment] = useState();
 
   const [secondBgColor, setSecondBgColor] = useState("white");
