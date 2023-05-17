@@ -26,7 +26,7 @@ function TimeBar() {
     <ul className="flex flex-col-reverse justify-start gap-5  p-3 w-24 items-baseline">
       {timeData.map((time, index) => (
         <li key={index}>
-          <p className={`text-${dateColor}`}>
+          <p className={`${dateColor}`}>
             {time.time} {time.current}
           </p>
         </li>

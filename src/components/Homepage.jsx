@@ -4,13 +4,14 @@ import SideThin from "./SideThin";
 import TaskContainer from "./TaskContainer";
 import TimeBar from "./TimeBar";
 import Todo from "./Todo";
+import AddTask from "./AddTask";
 
 export const ThemeContext = createContext(null);
 
 function Homepage() {
   const [fontColor, setFontColor] = useState("text-black");
   const [bgColor, setBgColor] = useState("white");
-  const [dateColor, setDateColor] = useState("zinc-300");
+  const [dateColor, setDateColor] = useState("text-zinc-400");
 
   const [secondBgColor, setSecondBgColor] = useState("white");
 
@@ -40,6 +41,7 @@ function Homepage() {
           <Side />
           <TimeBar />
           <TaskContainer />
+          <AddTask />
         </div>
       </div>
     </ThemeContext.Provider>

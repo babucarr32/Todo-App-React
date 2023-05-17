@@ -22,7 +22,7 @@ function Todo() {
       setBgColor("bg-black");
       setFlex("flex justify-end");
       setSecondBgColor("bg-zinc-900");
-      setDateColor("zinc-900");
+      setDateColor("text-zinc-600");
       setFontColor("text-white");
       darkModeRef.current.src = "/assets/icons/moon.svg";
     } else {
@@ -30,13 +30,13 @@ function Todo() {
       setBgColor("bg-white");
       setSecondBgColor("white");
       setFontColor("text-black");
-      setDateColor("zinc-300");
+      setDateColor("text-zinc-400");
       darkModeRef.current.src = "/assets/icons/sun.svg";
     }
   };
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center text">
       <div className="text-center w-100">
         <p className={`text-5xl font-extrabold mb-5 ${fontColor}`}>
           What Do You Want TODO Today?
