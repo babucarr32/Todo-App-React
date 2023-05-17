@@ -12,3 +12,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.addTask {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

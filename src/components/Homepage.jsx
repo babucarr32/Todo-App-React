@@ -12,6 +12,7 @@ function Homepage() {
   const [fontColor, setFontColor] = useState("text-black");
   const [bgColor, setBgColor] = useState("white");
   const [dateColor, setDateColor] = useState("text-zinc-400");
+  const [addTask, setAddTask] = useState(false);
 
   const [secondBgColor, setSecondBgColor] = useState("white");
 
@@ -26,6 +27,7 @@ function Homepage() {
         setFontColor,
         dateColor,
         setDateColor,
+        setAddTask,
       }}
     >
       <div className={`${secondBgColor}  h-100 p-28 pt-10`}>
@@ -41,7 +43,7 @@ function Homepage() {
           <Side />
           <TimeBar />
           <TaskContainer />
-          <AddTask />
+          {addTask && <AddTask />}
         </div>
       </div>
     </ThemeContext.Provider>
