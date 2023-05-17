@@ -9,7 +9,6 @@ function Input({ placeholder, name }) {
         placeholder={placeholder}
         name={name}
       />
-      ;
       <br />
       <br />
     </>

@@ -44,11 +44,8 @@ function AddTask() {
         <Input placeholder={"Time: 09:30 AM"} name={"time"} />
         <Input placeholder={"Title"} name={"title"} />
         <TextArea name={"comment"} />
-        <Button btnContent={"Create"} />
+        <Button btnContent={"Create"} bg={true} />
       </form>
-      {getTodoData.map((todo, index) => (
-        <h1 key={index}>{todo.time} ------------</h1>
-      ))}
     </div>
   );
 }

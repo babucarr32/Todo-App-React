@@ -3,7 +3,7 @@ import SideCard from "./SideCard";
 
 function Side() {
   return (
-    <div className={`bg-black p-5 w-80`}>
+    <div className={`bg-black p-5`}>
       <SideCard />
     </div>
   );

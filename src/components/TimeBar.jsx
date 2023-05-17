@@ -5,7 +5,7 @@ export const timeData = [
   { id: 1, time: "09", current: "am" },
   { id: 2, time: "10", current: "am" },
   { id: 3, time: "11", current: "am" },
-  { id: 4, time: "12", current: "am" },
+  { id: 4, time: "12", current: "pm" },
   { id: 5, time: "01", current: "pm" },
   { id: 6, time: "02", current: "pm" },
   { id: 7, time: "03", current: "pm" },

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import Icon from "./Icon";
+import Button from "./Button";
 
 function CheckBox({ text }) {
   const checkBoxRef = useRef();
@@ -23,7 +24,10 @@ function CheckBox({ text }) {
         handleClick={handleCheckBoxClick}
         refs={checkBoxRef}
       />
-      <p className={`text-${color}`}>{text}</p>
+      <div className="flex justify-between w-100">
+        <p className={`text-${color}`}>{text}</p>
+        <Button btnContent={"edit"} />
+      </div>
     </div>
   );
 }
