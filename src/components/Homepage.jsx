@@ -9,7 +9,7 @@ function Homepage() {
 
   return (
     <div
-      className={`bg-${bgColor} shadow-lg shadow-black w-100 h-90vh rounded-3xl relative flex`}
+      className={`bg-${bgColor} shadow-lg shadow-black w-100 rounded-3xl relative flex`}
     >
       <SideThin />
       <Side />
