@@ -3,20 +3,24 @@ import Side from "./Side";
 import SideThin from "./SideThin";
 import TaskContainer from "./TaskContainer";
 import TimeBar from "./TimeBar";
+import Todo from "./Todo";
 
 function Homepage() {
   const [fontColor, setFontColor] = useState("black");
   const [bgColor, setBgColor] = useState("white");
 
   return (
-    <div
-      className={`bg-${bgColor} shadow-lg shadow-black w-100 rounded-3xl relative flex overflow-hidden`}
-    >
-      <SideThin />
-      <Side />
-      <TimeBar />
-      <TaskContainer />
-    </div>
+    <>
+      <Todo />
+      <div
+        className={`bg-${bgColor} shadow-lg shadow-black w-100 rounded-3xl relative flex overflow-hidden`}
+      >
+        <SideThin />
+        <Side />
+        <TimeBar />
+        <TaskContainer />
+      </div>
+    </>
   );
 }
 
