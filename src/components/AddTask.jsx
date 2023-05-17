@@ -6,17 +6,14 @@ import Button from "./Button";
 
 function AddTask() {
   const [getTodoData, setGetTodoData] = useState([]);
-  const [todoData, setTodoData] = useState([]);
   const [submitForm, setSubmitForm] = useState(true);
 
   useEffect(() => {
     const getLocalStorage = localStorage.getItem("TODO");
-    setGetTodoData([getLocalStorage]);
+    if (getLocalStorage !== null) {
+      setGetTodoData([...JSON.parse(getLocalStorage)]);
+    }
   }, [submitForm]);
-
-  getTodoData.map((data) => {
-    console.log(data);
-  });
 
   const handleCreateTodo = (e) => {
     setSubmitForm(!submitForm);
@@ -33,10 +30,8 @@ function AddTask() {
         comment,
       },
     ];
-    let addToLSData;
     if (getLocalStorage !== null) {
       LSData = [...JSON.parse(getLocalStorage), ...LSData];
-      console.log("___", LSData);
     }
     localStorage.setItem("TODO", JSON.stringify(LSData));
     console.log(time, title, comment);
@@ -51,6 +46,9 @@ function AddTask() {
         <TextArea name={"comment"} />
         <Button btnContent={"Create"} />
       </form>
+      {getTodoData.map((todo, index) => (
+        <h1 key={index}>{todo.time} ------------</h1>
+      ))}
     </div>
   );
 }
