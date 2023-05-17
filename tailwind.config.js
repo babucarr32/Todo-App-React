@@ -10,7 +10,8 @@ export default {
         "60vh": "60vh",
       },
       height: {
-        "90vh": "80vh",
+        "90vh": "90vh",
+        "80vh": "80vh",
         "70vh": "70vh",
         "60vh": "60vh",
         100: "100%",
