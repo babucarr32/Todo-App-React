@@ -32,7 +32,12 @@ function AddTask() {
       },
     ];
     if (getLocalStorage !== null) {
-      const updateID = { ...LSData[0], id: LSData[0].id + 1 };
+      const LSLength = JSON.parse(getLocalStorage).length;
+      console.log(LSLength);
+      const updateID = {
+        ...LSData[0],
+        id: JSON.parse(getLocalStorage)[LSLength - 1].id + 1,
+      };
       LSData = [...JSON.parse(getLocalStorage), updateID];
     }
     localStorage.setItem("TODO", JSON.stringify(LSData));
