@@ -14,9 +14,9 @@ function AddTask() {
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">
       <form action="" onSubmit={handleCreateTodo}>
         <Title />
-        <Input placeholder={"Time: 09:30 AM"} />
-        <Input placeholder={"Title"} />
-        <TextArea />
+        <Input placeholder={"Time: 09:30 AM"} name={"date"} />
+        <Input placeholder={"Title"} name={"title"} />
+        <TextArea name={"comment"} />
         <br />
         <br />
         <Button btnContent={"Create"} />
