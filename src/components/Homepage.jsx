@@ -28,6 +28,7 @@ function Homepage() {
         dateColor,
         setDateColor,
         setAddTask,
+        addTask,
       }}
     >
       <div className={`${secondBgColor}  h-100 p-28 pt-10`}>

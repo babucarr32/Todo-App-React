@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import CheckBox from "./CheckBox";
 import Icon from "./Icon";
+import { ThemeContext } from "./Homepage";
 
 function SideCard() {
+  const { addTask, setAddTask } = useContext(ThemeContext);
   const handleAddTaskFunc = () => {
-    console.log("Add task");
+    setAddTask(!addTask);
   };
 
   return (
