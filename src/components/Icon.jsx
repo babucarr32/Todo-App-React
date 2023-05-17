@@ -5,7 +5,7 @@ function Icon({ src, height, width, bg }) {
     <div
       className={`rounded-full ${bg} w-10 h-10 flex justify-center items-center`}
     >
-      <img className={`w-${width} h-${height} `} src={src} alt="" srcset="" />
+      <img className={`${width} ${height} `} src={src} alt="" srcset="" />
     </div>
   );
 }
