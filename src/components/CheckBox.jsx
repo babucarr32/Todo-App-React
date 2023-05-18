@@ -13,6 +13,8 @@ function CheckBox({ text, todoID }) {
     setUpdateComment,
     addTask,
     setAddTask,
+    setUpdateTask,
+    updateTask,
   } = useContext(ThemeContext);
 
   const checkBoxRef = useRef();
@@ -30,6 +32,7 @@ function CheckBox({ text, todoID }) {
 
   const handleEditTodo = (todoID) => {
     setAddTask(!addTask);
+    setUpdateTask(!updateTask);
     setUpdateTitle("Hello World");
     setUpdateTime("12:28 a");
   };
