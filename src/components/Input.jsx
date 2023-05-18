@@ -1,18 +1,13 @@
-import React, { useContext, useState } from "react";
-import { ThemeContext } from "./Homepage";
+import React from "react";
 
-function Input({ value, initPlaceholder, initName }) {
-  const { placeholder, name, updateTitle, updateTime, setUpdateTitle } =
-    useContext(ThemeContext);
+function Input({ placeholder, name }) {
   return (
     <>
       <input
-        value={value ? value : updateTime ? updateTime : updateTitle}
         className="w-100 h-10"
         type="text"
-        placeholder={initPlaceholder ? initPlaceholder : placeholder}
-        name={initName ? initName : name}
-        onChange={(e) => setUpdateTitle(e.target.value)}
+        placeholder={placeholder}
+        name={name}
       />
       <br />
       <br />

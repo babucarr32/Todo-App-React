@@ -52,12 +52,12 @@ function AddTask() {
       <form action="" onSubmit={(e) => handleCreateTodo(e)}>
         <Title />
         <Input
-          initPlaceholder={"Time: 09:30 AM"}
-          initName={"time"}
+          placeholder={"Time: 09:30 AM"}
+          name={"time"}
           value={updateTitle}
         />
-        <Input initPlaceholder={"Title"} name={"title"} value={updateTime} />
-        <TextArea initName={"comment"} />
+        <Input placeholder={"Title"} name={"title"} value={updateTime} />
+        <TextArea name={"comment"} />
         <Button btnContent={"Create"} bg={true} />
       </form>
     </div>
