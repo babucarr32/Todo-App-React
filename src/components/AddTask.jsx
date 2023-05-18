@@ -45,6 +45,7 @@ function AddTask() {
         comment,
       },
     ];
+    // Update the LS if not null
     if (getLocalStorage !== null) {
       const LSLength = JSON.parse(getLocalStorage).length;
       const updateID = {
@@ -59,6 +60,7 @@ function AddTask() {
     setUpdateTask(false);
   };
 
+  // Init the LS with data
   useEffect(() => {
     const getLocalStorage = localStorage.getItem("TODO");
     if (getLocalStorage !== null) {

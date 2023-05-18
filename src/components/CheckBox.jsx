@@ -12,16 +12,12 @@ function CheckBox({ text, todoID, getTodoData, setGetTodoData }) {
     setUpdateTask,
     updateTask,
     setGetPropId,
-    getPropId,
     rerender,
     setRerender,
-    getTodoChart,
     seGetTodoChart,
   } = useContext(ThemeContext);
 
   const checkBoxRef = useRef();
-
-  let color = "white";
 
   useEffect(() => {
     const getLocalStorage = localStorage.getItem("TODO");
@@ -34,16 +30,21 @@ function CheckBox({ text, todoID, getTodoData, setGetTodoData }) {
   const handleCheckBoxClick = (todoID) => {
     const delTodo = getTodoData.filter((todo) => todo.id !== todoID);
     localStorage.setItem("TODO", JSON.stringify(delTodo));
+    //  Update the task and Todo/Chart
     setGetTodoData(delTodo);
     seGetTodoChart(delTodo);
+    // Call useEffect and update the LS
     setRerender(!rerender);
   };
 
   const handleEditTodo = (todoID) => {
     const findTodoToUpdate = getTodoData.find((todo) => todo.id == todoID);
     setGetPropId(todoID);
+    // Show Or Hide the create TODO
     setAddTask(!addTask);
+    // If true update button will show
     setUpdateTask(!updateTask);
+    // To assign values to the inputs of the Modal (AddTask.jsx)
     setUpdateTitle(findTodoToUpdate.title);
     setUpdateTime(findTodoToUpdate.time);
   };
@@ -57,7 +58,7 @@ function CheckBox({ text, todoID, getTodoData, setGetTodoData }) {
         refs={checkBoxRef}
       />
       <div className="flex justify-between w-100 items-center">
-        <p className={`text-${color}`}>{text}</p>
+        <p className={`text-white`}>{text}</p>
         <Button
           btnContent={"edit"}
           buttonClick={() => handleEditTodo(todoID)}
