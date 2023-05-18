@@ -20,7 +20,7 @@ function Homepage() {
   const [updateTime, setUpdateTime] = useState(null);
   const [updateComment, setUpdateComment] = useState();
 
-  const [secondBgColor, setSecondBgColor] = useState("white");
+  const [secondBgColor, setSecondBgColor] = useState("bg-white");
 
   return (
     <ThemeContext.Provider

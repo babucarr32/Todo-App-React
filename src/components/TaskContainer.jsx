@@ -10,6 +10,9 @@ const bgColorThemes = [
   "bg-blue-400",
   "bg-green-400",
   "bg-orange-400",
+  "bg-yellow-400",
+  "bg-violet-400",
+  "bg-indigo-400",
 ];
 
 var currentHour = "23";

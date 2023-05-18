@@ -6,8 +6,14 @@ import Button from "./Button";
 import { ThemeContext } from "./Homepage";
 
 function AddTask() {
-  const { getPropId, updateTitle, updateTime, updateTask } =
-    useContext(ThemeContext);
+  const {
+    fontColor,
+    secondBgColor,
+    getPropId,
+    updateTitle,
+    updateTime,
+    updateTask,
+  } = useContext(ThemeContext);
 
   const titleRef = useRef();
   const timeRef = useRef();
@@ -67,14 +73,16 @@ function AddTask() {
     localStorage.setItem("TODO", JSON.stringify(updateTodo));
   };
   return (
-    <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">
+    <div
+      className={`addTask w-70vh ${secondBgColor} absolute z-10 shadow-2xl shadow-black p-3 rounded-2xl`}
+    >
       <form
         action=""
         onSubmit={
           submitForm ? (e) => handleCreateTodo(e) : (e) => handleUpdateTodo(e)
         }
       >
-        <Title />
+        <Title fontColor={fontColor} />
         <Input
           initPlaceholder={"Time: 09:30 AM"}
           initName={"time"}

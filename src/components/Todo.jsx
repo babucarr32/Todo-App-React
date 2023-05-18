@@ -27,7 +27,7 @@ function Todo() {
     } else {
       setFlex("flex justify-start");
       setBgColor("bg-white");
-      setSecondBgColor("white");
+      setSecondBgColor("bg-white");
       setFontColor("text-black");
       setDateColor("text-zinc-400");
       darkModeRef.current.src = "/assets/icons/sun.svg";
