@@ -38,7 +38,7 @@ function CheckBox({ text, todoID }) {
 
   const handleEditTodo = (todoID) => {
     const findTodoToUpdate = getTodoData.find((todo) => todo.id == todoID);
-    setGetPropId(findTodoToUpdate);
+    setGetPropId(todoID);
 
     setAddTask(!addTask);
     setUpdateTask(!updateTask);

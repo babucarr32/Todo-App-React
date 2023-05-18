@@ -49,7 +49,9 @@ function AddTask() {
 
   const handleUpdateTodo = (e) => {
     e.preventDefault();
-    console.log(getPropId);
+    const todoTitle = titleRef.current.value;
+    const todoTime = timeRef.current.value;
+    console.log(getPropId, todoTitle, todoTime);
   };
   return (
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">
