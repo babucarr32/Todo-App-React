@@ -6,8 +6,8 @@ import Button from "./Button";
 import { ThemeContext } from "./Homepage";
 
 function AddTask() {
-  const { addTask, updateTitle, updateTime, setUpdateTitle, defaultTitle } =
-    useContext(ThemeContext);
+  const { updateTitle, updateTime, updateTask } = useContext(ThemeContext);
+  console.log(updateTask);
 
   const titleRef = useRef();
   const timeRef = useRef();
@@ -17,7 +17,7 @@ function AddTask() {
   useEffect(() => {
     titleRef.current.value = updateTitle;
     timeRef.current.value = updateTime;
-  }, [addTask]);
+  }, [updateTask]);
 
   const handleCreateTodo = (e) => {
     setSubmitForm(!submitForm);
@@ -58,7 +58,11 @@ function AddTask() {
         />
         <Input initPlaceholder={"Title"} initName={"title"} refs={titleRef} />
         <TextArea initName={"comment"} />
-        <Button btnContent={"Create"} bg={true} />
+        {updateTask ? (
+          <Button btnContent={"Update"} bg={true} />
+        ) : (
+          <Button btnContent={"Create"} bg={true} />
+        )}
       </form>
     </div>
   );
