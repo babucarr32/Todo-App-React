@@ -43,7 +43,9 @@ function TaskContainer() {
             time={todo.time}
             height={todo.time}
             width="w-100"
-            bgColor={bgColorThemes[index]}
+            bgColor={
+              bgColorThemes[Math.floor(Math.random() * bgColorThemes.length)]
+            }
           />
         ))}
       </div>
