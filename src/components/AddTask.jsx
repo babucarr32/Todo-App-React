@@ -8,12 +8,12 @@ import { ThemeContext } from "./Homepage";
 function AddTask() {
   const { getPropId, updateTitle, updateTime, updateTask } =
     useContext(ThemeContext);
-  console.log(updateTask);
 
   const titleRef = useRef();
   const timeRef = useRef();
 
   const [submitForm, setSubmitForm] = useState(true);
+  const [getTodoData, setGetTodoData] = useState([]);
 
   useEffect(() => {
     titleRef.current.value = updateTitle;
@@ -37,7 +37,6 @@ function AddTask() {
     ];
     if (getLocalStorage !== null) {
       const LSLength = JSON.parse(getLocalStorage).length;
-      console.log(LSLength);
       const updateID = {
         ...LSData[0],
         id: JSON.parse(getLocalStorage)[LSLength - 1].id + 1,
@@ -47,11 +46,25 @@ function AddTask() {
     localStorage.setItem("TODO", JSON.stringify(LSData));
   };
 
+  useEffect(() => {
+    const getLocalStorage = localStorage.getItem("TODO");
+    if (getLocalStorage !== null) {
+      setGetTodoData([...JSON.parse(getLocalStorage)]);
+    }
+  }, []);
+
   const handleUpdateTodo = (e) => {
     e.preventDefault();
     const todoTitle = titleRef.current.value;
     const todoTime = timeRef.current.value;
-    console.log(getPropId, todoTitle, todoTime);
+    const updateTodo = getTodoData.map((todo) => {
+      if (todo.id === getPropId) {
+        return { ...todo, title: todoTitle, time: todoTime };
+      } else {
+        return { ...todo };
+      }
+    });
+    localStorage.setItem("TODO", JSON.stringify(updateTodo));
   };
   return (
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">

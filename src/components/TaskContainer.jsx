@@ -20,7 +20,6 @@ if (vhValue < 0) {
   vhValue = 100;
 }
 var cssValue = vhValue + "vh";
-console.log(cssValue);
 
 function TaskContainer() {
   const [getTodoData, setGetTodoData] = useState([]);

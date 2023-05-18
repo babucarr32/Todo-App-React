@@ -16,7 +16,6 @@ function Todo() {
   const [flex, setFlex] = useState("");
 
   const handleDarkMode = () => {
-    console.log("clicked");
     setDarkMode(!darkMode);
     if (!darkMode) {
       setBgColor("bg-black");

@@ -24,7 +24,6 @@ function Date() {
         return e;
       }
     });
-    console.log("-----", eTarget);
   };
   return (
     <ul className="flex justify-around text-5xl font-bold gap-2 pt-5 pb-5">
