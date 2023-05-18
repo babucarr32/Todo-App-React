@@ -25,13 +25,12 @@ if (vhValue < 0) {
 var cssValue = vhValue + "vh";
 
 function TaskContainer() {
-  const [getTodoData, setGetTodoData] = useState([]);
-  const { addTask } = useContext(ThemeContext);
+  const { addTask, getTodoChart, seGetTodoChart } = useContext(ThemeContext);
 
   useEffect(() => {
     const getLocalStorage = localStorage.getItem("TODO");
     if (getLocalStorage !== null) {
-      setGetTodoData([...JSON.parse(getLocalStorage)]);
+      seGetTodoChart([...JSON.parse(getLocalStorage)]);
     }
   }, [addTask]);
 
@@ -39,7 +38,7 @@ function TaskContainer() {
     <div className="flex flex-col h-80vh gap-2 w-100 overflow-x-scroll justify-between">
       <DateComponent />
       <div className="flex gap-2 items-end pl-2 pr-2 h-100">
-        {getTodoData.map((todo, index) => (
+        {getTodoChart.map((todo, index) => (
           <Task
             key={index}
             title={todo.title}

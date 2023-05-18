@@ -15,6 +15,8 @@ function CheckBox({ text, todoID, getTodoData, setGetTodoData }) {
     getPropId,
     rerender,
     setRerender,
+    getTodoChart,
+    seGetTodoChart,
   } = useContext(ThemeContext);
 
   const checkBoxRef = useRef();
@@ -33,8 +35,8 @@ function CheckBox({ text, todoID, getTodoData, setGetTodoData }) {
     const delTodo = getTodoData.filter((todo) => todo.id !== todoID);
     localStorage.setItem("TODO", JSON.stringify(delTodo));
     setGetTodoData(delTodo);
+    seGetTodoChart(delTodo);
     setRerender(!rerender);
-    // checkBoxRef.current.src = "/assets/icons/plus.svg";
   };
 
   const handleEditTodo = (todoID) => {

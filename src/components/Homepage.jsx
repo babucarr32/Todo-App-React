@@ -16,6 +16,7 @@ function Homepage() {
   const [updateTask, setUpdateTask] = useState(false);
   const [getPropId, setGetPropId] = useState();
   const [rerender, setRerender] = useState(false);
+  const [getTodoChart, seGetTodoChart] = useState([]);
 
   const [updateTitle, setUpdateTitle] = useState(null);
   const [updateTime, setUpdateTime] = useState(null);
@@ -42,6 +43,8 @@ function Homepage() {
         updateTask,
         getPropId,
         rerender,
+        getTodoChart,
+        seGetTodoChart,
         setUpdateTitle,
         setUpdateTime,
         setUpdateComment,
