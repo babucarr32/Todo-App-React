@@ -25,10 +25,8 @@ function SideCard() {
           <h3 className={`text-pink-200`}>This week</h3>
           <p className="text-white">-</p>
         </div>
-        {getTodoData.map((todo) => (
-          <>
-            <CheckBox text={todo.title} todoID={todo.id} />
-          </>
+        {getTodoData.map((todo, index) => (
+          <CheckBox key={index} text={todo.title} todoID={todo.id} />
         ))}
         <div className="w-100 flex justify-end">
           <Icon

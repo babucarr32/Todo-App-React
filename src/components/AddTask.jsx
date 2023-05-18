@@ -6,7 +6,8 @@ import Button from "./Button";
 import { ThemeContext } from "./Homepage";
 
 function AddTask() {
-  const { updateTitle, updateTime, updateTask } = useContext(ThemeContext);
+  const { getPropId, updateTitle, updateTime, updateTask } =
+    useContext(ThemeContext);
   console.log(updateTask);
 
   const titleRef = useRef();
@@ -46,8 +47,9 @@ function AddTask() {
     localStorage.setItem("TODO", JSON.stringify(LSData));
   };
 
-  const handleUpdateTodo = () => {
-    console.log("Update me");
+  const handleUpdateTodo = (e) => {
+    e.preventDefault();
+    console.log(getPropId);
   };
   return (
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">

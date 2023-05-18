@@ -5,16 +5,13 @@ import { ThemeContext } from "./Homepage";
 
 function CheckBox({ text, todoID }) {
   const {
-    updateTitle,
-    updateTime,
-    updateComment,
     setUpdateTitle,
     setUpdateTime,
-    setUpdateComment,
     addTask,
     setAddTask,
     setUpdateTask,
     updateTask,
+    setGetPropId,
   } = useContext(ThemeContext);
 
   const checkBoxRef = useRef();
@@ -41,7 +38,7 @@ function CheckBox({ text, todoID }) {
 
   const handleEditTodo = (todoID) => {
     const findTodoToUpdate = getTodoData.find((todo) => todo.id == todoID);
-    console.log(findTodoToUpdate);
+    setGetPropId(findTodoToUpdate);
 
     setAddTask(!addTask);
     setUpdateTask(!updateTask);

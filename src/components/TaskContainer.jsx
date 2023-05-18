@@ -39,6 +39,7 @@ function TaskContainer() {
       <div className="flex gap-2 items-end pl-2 pr-2 h-100">
         {getTodoData.map((todo, index) => (
           <Task
+            key={index}
             title={todo.title}
             time={todo.time}
             height={todo.time}

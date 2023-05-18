@@ -14,6 +14,7 @@ function Homepage() {
   const [dateColor, setDateColor] = useState("text-zinc-400");
   const [addTask, setAddTask] = useState(false);
   const [updateTask, setUpdateTask] = useState(false);
+  const [getPropId, setGetPropId] = useState();
 
   const [updateTitle, setUpdateTitle] = useState(null);
   const [updateTime, setUpdateTime] = useState(null);
@@ -38,10 +39,12 @@ function Homepage() {
         updateTime,
         updateComment,
         updateTask,
+        getPropId,
         setUpdateTitle,
         setUpdateTime,
         setUpdateComment,
         setUpdateTask,
+        setGetPropId,
       }}
     >
       <div className={`${secondBgColor}  h-100 p-28 pt-10`}>
