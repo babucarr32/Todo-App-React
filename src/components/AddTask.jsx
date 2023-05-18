@@ -20,7 +20,6 @@ function AddTask() {
   }, [updateTask]);
 
   const handleCreateTodo = (e) => {
-    setSubmitForm(!submitForm);
     e.preventDefault();
     const time = e.target.time.value;
     const title = e.target.title.value;
@@ -47,9 +46,17 @@ function AddTask() {
     localStorage.setItem("TODO", JSON.stringify(LSData));
   };
 
+  const handleUpdateTodo = () => {
+    console.log("Update me");
+  };
   return (
     <div className="addTask w-70vh bg-white absolute z-10 shadow-2xl p-3 rounded-2xl">
-      <form action="" onSubmit={(e) => handleCreateTodo(e)}>
+      <form
+        action=""
+        onSubmit={
+          submitForm ? (e) => handleCreateTodo(e) : (e) => handleUpdateTodo(e)
+        }
+      >
         <Title />
         <Input
           initPlaceholder={"Time: 09:30 AM"}
@@ -59,7 +66,11 @@ function AddTask() {
         <Input initPlaceholder={"Title"} initName={"title"} refs={titleRef} />
         <TextArea initName={"comment"} />
         {updateTask ? (
-          <Button btnContent={"Update"} bg={true} />
+          <Button
+            btnContent={"Update"}
+            bg={true}
+            buttonClick={() => setSubmitForm(!submitForm)}
+          />
         ) : (
           <Button btnContent={"Create"} bg={true} />
         )}
