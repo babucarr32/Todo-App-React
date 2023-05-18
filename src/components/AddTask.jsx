@@ -15,6 +15,7 @@ function AddTask() {
     updateTask,
     addTask,
     setAddTask,
+    setUpdateTask,
   } = useContext(ThemeContext);
 
   const titleRef = useRef();
@@ -53,6 +54,9 @@ function AddTask() {
       LSData = [...JSON.parse(getLocalStorage), updateID];
     }
     localStorage.setItem("TODO", JSON.stringify(LSData));
+
+    setAddTask(!addTask);
+    setUpdateTask(false);
   };
 
   useEffect(() => {
@@ -74,10 +78,13 @@ function AddTask() {
       }
     });
     localStorage.setItem("TODO", JSON.stringify(updateTodo));
+    setUpdateTask(false);
+    setAddTask(!addTask);
   };
 
   const handleDiscardForm = (e) => {
     e.preventDefault();
+    setUpdateTask(!updateTask);
     setAddTask(!addTask);
   };
   return (
@@ -103,7 +110,7 @@ function AddTask() {
             <Button
               btnContent={"Update"}
               bg={true}
-              buttonClick={() => setSubmitForm(!submitForm)}
+              buttonClick={() => setSubmitForm(false)}
             />
 
             <Button
@@ -114,7 +121,11 @@ function AddTask() {
             />
           </>
         ) : (
-          <Button btnContent={"Create"} bg={true} />
+          <Button
+            btnContent={"Create"}
+            bg={true}
+            buttonClick={() => setSubmitForm(true)}
+          />
         )}
       </form>
     </div>
