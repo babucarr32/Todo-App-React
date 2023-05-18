@@ -3,7 +3,7 @@ import Icon from "./Icon";
 import Button from "./Button";
 import { ThemeContext } from "./Homepage";
 
-function CheckBox({ text, todoID }) {
+function CheckBox({ text, todoID, getTodoData, setGetTodoData }) {
   const {
     setUpdateTitle,
     setUpdateTime,
@@ -13,10 +13,11 @@ function CheckBox({ text, todoID }) {
     updateTask,
     setGetPropId,
     getPropId,
+    rerender,
+    setRerender,
   } = useContext(ThemeContext);
 
   const checkBoxRef = useRef();
-  const [getTodoData, setGetTodoData] = useState([]);
 
   let color = "white";
 
@@ -26,9 +27,14 @@ function CheckBox({ text, todoID }) {
       setGetTodoData([...JSON.parse(getLocalStorage)]);
     }
   }, [addTask]);
+  todoID;
 
-  const handleCheckBoxClick = () => {
-    console.log(getPropId);
+  const handleCheckBoxClick = (todoID) => {
+    const delTodo = getTodoData.filter((todo) => todo.id !== todoID);
+    localStorage.setItem("TODO", JSON.stringify(delTodo));
+    setGetTodoData(delTodo);
+    setRerender(!rerender);
+    // checkBoxRef.current.src = "/assets/icons/plus.svg";
   };
 
   const handleEditTodo = (todoID) => {
@@ -46,7 +52,7 @@ function CheckBox({ text, todoID }) {
         src={"/assets/icons/bin.svg"}
         width={"h-4"}
         height={"h-4"}
-        handleClick={handleCheckBoxClick}
+        handleClick={() => handleCheckBoxClick(todoID)}
         refs={checkBoxRef}
       />
       <div className="flex justify-between w-100 items-center">

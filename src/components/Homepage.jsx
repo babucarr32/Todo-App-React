@@ -15,6 +15,7 @@ function Homepage() {
   const [addTask, setAddTask] = useState(false);
   const [updateTask, setUpdateTask] = useState(false);
   const [getPropId, setGetPropId] = useState();
+  const [rerender, setRerender] = useState(false);
 
   const [updateTitle, setUpdateTitle] = useState(null);
   const [updateTime, setUpdateTime] = useState(null);
@@ -40,11 +41,13 @@ function Homepage() {
         updateComment,
         updateTask,
         getPropId,
+        rerender,
         setUpdateTitle,
         setUpdateTime,
         setUpdateComment,
         setUpdateTask,
         setGetPropId,
+        setRerender,
       }}
     >
       <div className={`${secondBgColor}  h-100 p-28 pt-10`}>

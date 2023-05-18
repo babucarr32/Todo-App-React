@@ -5,14 +5,14 @@ import { ThemeContext } from "./Homepage";
 
 function SideCard() {
   const [getTodoData, setGetTodoData] = useState([]);
-  const { addTask, setAddTask } = useContext(ThemeContext);
+  const { addTask, setAddTask, rerender } = useContext(ThemeContext);
 
   useEffect(() => {
     const getLocalStorage = localStorage.getItem("TODO");
     if (getLocalStorage !== null) {
       setGetTodoData([...JSON.parse(getLocalStorage)]);
     }
-  }, [addTask]);
+  }, [addTask, rerender]);
 
   const handleAddTaskFunc = () => {
     setAddTask(!addTask);
@@ -28,7 +28,13 @@ function SideCard() {
           <p className="text-white">-</p>
         </div>
         {getTodoData.map((todo, index) => (
-          <CheckBox key={index} text={todo.title} todoID={todo.id} />
+          <CheckBox
+            key={index}
+            text={todo.title}
+            todoID={todo.id}
+            setGetTodoData={setGetTodoData}
+            getTodoData={getTodoData}
+          />
         ))}
         <div className="w-100 flex justify-end">
           <Icon
