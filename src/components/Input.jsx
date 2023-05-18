@@ -1,18 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, forwardRef } from "react";
 import { ThemeContext } from "./Homepage";
 
-function Input({ initPlaceholder, initName }) {
-  const {
-    updateTask,
-    placeholder,
-    name,
-    updateTitle,
-    updateTime,
-    setUpdateTitle,
-  } = useContext(ThemeContext);
-
-  if (updateTask === true) console.log("Editing");
-
+const Input = forwardRef(function Input({ initPlaceholder, initName, refs }) {
   return (
     <>
       <input
@@ -20,12 +9,13 @@ function Input({ initPlaceholder, initName }) {
         type="text"
         placeholder={initPlaceholder}
         name={initName}
+        ref={refs}
       />
       <br />
       <br />
     </>
   );
-}
+});
 
 export default Input;
 

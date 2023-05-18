@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import Title from "./Title";
@@ -6,11 +6,19 @@ import Button from "./Button";
 import { ThemeContext } from "./Homepage";
 
 function AddTask() {
-  const { updateTitle, updateTime, setUpdateTitle, defaultTitle } =
+  const { addTask, updateTitle, updateTime, setUpdateTitle, defaultTitle } =
     useContext(ThemeContext);
+
+  const titleRef = useRef();
+  const timeRef = useRef();
 
   const [getTodoData, setGetTodoData] = useState([]);
   const [submitForm, setSubmitForm] = useState(true);
+
+  useEffect(() => {
+    titleRef.current.value = updateTitle;
+    timeRef.current.value = updateTime;
+  }, [addTask]);
 
   useEffect(() => {
     const getLocalStorage = localStorage.getItem("TODO");
@@ -55,8 +63,14 @@ function AddTask() {
           initPlaceholder={"Time: 09:30 AM"}
           initName={"time"}
           value={updateTitle}
+          refs={titleRef}
         />
-        <Input initPlaceholder={"Title"} name={"title"} value={updateTime} />
+        <Input
+          initPlaceholder={"Title"}
+          name={"title"}
+          value={updateTime}
+          refs={timeRef}
+        />
         <TextArea initName={"comment"} />
         <Button btnContent={"Create"} bg={true} />
       </form>
