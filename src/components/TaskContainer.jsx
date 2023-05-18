@@ -36,7 +36,7 @@ function TaskContainer() {
   }, [addTask]);
 
   return (
-    <div className="flex flex-col h-80vh gap-2 w-100 justify-between">
+    <div className="flex flex-col h-80vh gap-2 w-100 overflow-x-scroll justify-between">
       <DateComponent />
       <div className="flex gap-2 items-end pl-2 pr-2 h-100">
         {getTodoData.map((todo, index) => (

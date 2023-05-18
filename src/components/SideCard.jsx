@@ -20,7 +20,9 @@ function SideCard() {
 
   return (
     <>
-      <div className={`flex flex-col p-3 rounded-xl bg-gray mb-3`}>
+      <div
+        className={`flex flex-col p-3 rounded-xl bg-gray mb-3 h-70vh overflow-scroll`}
+      >
         <div className="flex justify-between items-center">
           <h3 className={`text-pink-200`}>This week</h3>
           <p className="text-white">-</p>

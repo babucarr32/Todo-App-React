@@ -13,12 +13,15 @@ function AddTask() {
     updateTitle,
     updateTime,
     updateTask,
+    addTask,
+    setAddTask,
   } = useContext(ThemeContext);
 
   const titleRef = useRef();
   const timeRef = useRef();
 
   const [submitForm, setSubmitForm] = useState(true);
+
   const [getTodoData, setGetTodoData] = useState([]);
 
   useEffect(() => {
@@ -72,6 +75,11 @@ function AddTask() {
     });
     localStorage.setItem("TODO", JSON.stringify(updateTodo));
   };
+
+  const handleDiscardForm = (e) => {
+    e.preventDefault();
+    setAddTask(!addTask);
+  };
   return (
     <div
       className={`addTask w-70vh ${secondBgColor} absolute z-10 shadow-2xl shadow-black p-3 rounded-2xl`}
@@ -91,11 +99,20 @@ function AddTask() {
         <Input initPlaceholder={"Title"} initName={"title"} refs={titleRef} />
         <TextArea initName={"comment"} />
         {updateTask ? (
-          <Button
-            btnContent={"Update"}
-            bg={true}
-            buttonClick={() => setSubmitForm(!submitForm)}
-          />
+          <>
+            <Button
+              btnContent={"Update"}
+              bg={true}
+              buttonClick={() => setSubmitForm(!submitForm)}
+            />
+
+            <Button
+              btnContent={"Discard"}
+              bg={true}
+              buttonClick={(e) => handleDiscardForm(e)}
+              type={"button"}
+            />
+          </>
         ) : (
           <Button btnContent={"Create"} bg={true} />
         )}

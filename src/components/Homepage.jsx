@@ -54,7 +54,7 @@ function Homepage() {
           setSecChangeToDarkMode={setSecondBgColor}
         />
         <div
-          className={`bg-${bgColor} shadow-lg shadow-black w-100 rounded-3xl relative flex overflow-hidden`}
+          className={`bg-${bgColor} shadow-lg shadow-black rounded-3xl relative flex overflow-hidden`}
         >
           <SideThin />
           <Side />

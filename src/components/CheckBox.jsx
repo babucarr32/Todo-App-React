@@ -12,10 +12,10 @@ function CheckBox({ text, todoID }) {
     setUpdateTask,
     updateTask,
     setGetPropId,
+    getPropId,
   } = useContext(ThemeContext);
 
   const checkBoxRef = useRef();
-  const [checked, setChecked] = useState(false);
   const [getTodoData, setGetTodoData] = useState([]);
 
   let color = "white";
@@ -28,12 +28,7 @@ function CheckBox({ text, todoID }) {
   }, [addTask]);
 
   const handleCheckBoxClick = () => {
-    setChecked(!checked);
-    if (!checked) {
-      checkBoxRef.current.src = "/assets/icons/checked.svg";
-    } else {
-      checkBoxRef.current.src = "/assets/icons/unchecked.svg";
-    }
+    console.log(getPropId);
   };
 
   const handleEditTodo = (todoID) => {
@@ -48,7 +43,7 @@ function CheckBox({ text, todoID }) {
   return (
     <div className={`flex text-white items-center`}>
       <Icon
-        src={"/assets/icons/unchecked.svg"}
+        src={"/assets/icons/bin.svg"}
         width={"h-4"}
         height={"h-4"}
         handleClick={handleCheckBoxClick}
