@@ -1,11 +1,11 @@
 import React from "react";
 
-function TextArea({ name }) {
+function TextArea({ initName }) {
   return (
     <>
       <textarea
         className="w-100 h-52"
-        name={name}
+        name={initName}
         id=""
         placeholder="Comments..."
       ></textarea>

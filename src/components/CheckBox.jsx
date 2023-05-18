@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
 import { ThemeContext } from "./Homepage";
@@ -19,8 +19,17 @@ function CheckBox({ text, todoID }) {
 
   const checkBoxRef = useRef();
   const [checked, setChecked] = useState(false);
+  const [getTodoData, setGetTodoData] = useState([]);
 
   let color = "white";
+
+  useEffect(() => {
+    const getLocalStorage = localStorage.getItem("TODO");
+    if (getLocalStorage !== null) {
+      setGetTodoData([...JSON.parse(getLocalStorage)]);
+    }
+  }, [addTask]);
+
   const handleCheckBoxClick = () => {
     setChecked(!checked);
     if (!checked) {
@@ -31,6 +40,9 @@ function CheckBox({ text, todoID }) {
   };
 
   const handleEditTodo = (todoID) => {
+    const findTodoToUpdate = getTodoData.find((todo) => todo.id == todoID);
+    console.log(findTodoToUpdate);
+
     setAddTask(!addTask);
     setUpdateTask(!updateTask);
     setUpdateTitle("Hello World");

@@ -12,20 +12,12 @@ function AddTask() {
   const titleRef = useRef();
   const timeRef = useRef();
 
-  const [getTodoData, setGetTodoData] = useState([]);
   const [submitForm, setSubmitForm] = useState(true);
 
   useEffect(() => {
     titleRef.current.value = updateTitle;
     timeRef.current.value = updateTime;
   }, [addTask]);
-
-  useEffect(() => {
-    const getLocalStorage = localStorage.getItem("TODO");
-    if (getLocalStorage !== null) {
-      setGetTodoData([...JSON.parse(getLocalStorage)]);
-    }
-  }, [submitForm]);
 
   const handleCreateTodo = (e) => {
     setSubmitForm(!submitForm);
@@ -62,15 +54,9 @@ function AddTask() {
         <Input
           initPlaceholder={"Time: 09:30 AM"}
           initName={"time"}
-          value={updateTitle}
-          refs={titleRef}
-        />
-        <Input
-          initPlaceholder={"Title"}
-          name={"title"}
-          value={updateTime}
           refs={timeRef}
         />
+        <Input initPlaceholder={"Title"} initName={"title"} refs={titleRef} />
         <TextArea initName={"comment"} />
         <Button btnContent={"Create"} bg={true} />
       </form>
