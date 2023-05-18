@@ -45,8 +45,8 @@ function CheckBox({ text, todoID }) {
 
     setAddTask(!addTask);
     setUpdateTask(!updateTask);
-    setUpdateTitle("Hello World");
-    setUpdateTime("12:28 am");
+    setUpdateTitle(findTodoToUpdate.title);
+    setUpdateTime(findTodoToUpdate.time);
   };
   return (
     <div className={`flex text-white items-center`}>
